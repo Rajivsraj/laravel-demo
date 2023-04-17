@@ -21,5 +21,16 @@ class StaffController extends Controller
        $add_staff->password = $req["password"];  
        $add_staff->role = $req["role"];
        $add_staff->save();
+       return redirect("/");
+    }
+
+    function staffList(){
+        $all_staff = Staff::all()->toArray();
+        return view("staff-list", ["allStaff"=>$all_staff]);
+    }
+
+    function deleteStaff($id){
+        Staff::find($id)->delete();
+        return redirect("staff-list");
     }
 }

@@ -15,5 +15,8 @@
         <input type="text" placeholder="Roll" name="role"><br><br>
         <input type="submit" value="Register" name="register">
     </form>
+
+    {{-- <a href="/staff-list"> Student List </a> --}}
+    <a href="{{route('staff_list_link')}}"> Student List </a>
 </body>
 </html>

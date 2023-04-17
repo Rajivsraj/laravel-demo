@@ -21,3 +21,5 @@ use App\Http\Controllers\StaffController;
 
 Route::get("/", [StaffController::class, "addStudent"]);
 Route::post("/save", [StaffController::class, "saveRecord"]);
+Route::get("skldkfhjklsdhfkl", [StaffController::class, "staffList"])->name("staff_list_link");
+Route::get("delete-staff/{id}", [StaffController::class, "deleteStaff"]);
