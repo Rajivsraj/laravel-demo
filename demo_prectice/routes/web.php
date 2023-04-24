@@ -1,7 +1,7 @@
 <?php
 
+use App\Http\Controllers\stu_controller;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\StaffController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,12 +14,7 @@ use App\Http\Controllers\StaffController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-
-Route::get("/", [StaffController::class, "addStudent"]); 
-Route::post("/save", [StaffController::class, "saveRecord"]);
-Route::get("skldkfhjklsdhfkl", [StaffController::class, "staffList"])->name("staff_list_link");
-Route::get("delete-staff/{id}", [StaffController::class, "deleteStaff"]);
+Route::get("/", function(){
+    return view("form");
+});
+Route::post('/form',[stu_controller::class,"stu"]);
