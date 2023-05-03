@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\LoginRegisterController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,12 +20,25 @@ use App\Http\Controllers\LoginRegisterController;
 //     return view('welcome');
 // });
 
-Route::view("/", "login")->name("name_login_view");
+
 Route::get("register/", [LoginRegisterController::class, "stuRegView"])->name("name_register_view");
 Route::post("register/", [LoginRegisterController::class, "stuReg"])->name("name_register");
-Route::get("/dashboard",[StudentController::class, "about"])->name("name_dashboard");
-Route::get("/dashboard/add-stu",[StudentController::class, "about"])->name("name_dashboard_addstu");
-Route::get("/dashboard/del-stu",[StudentController::class, "about"])->name("name_dashboard_delstu");
+
+Route::get("/", [LoginRegisterController::class, "studentLoginView"])->name("name_login_view");
+Route::post("/", [LoginRegisterController::class, "studentLogin"])->name("name_login");
+
+Route::get("/logut", function(){
+    if(session()->has("login_status")){
+        session()->flush();
+        return redirect(route("name_login_view"));
+    }else{
+
+    }
+})->name("name_logout");
+
+Route::get("/dashboard",[DashboardController::class, "dashboard_view"])->name("name_dashboard_view");
+Route::get("/dashboard/add-stu",[DashboardController::class, "about"])->name("name_dashboard_addstu");
+Route::get("/dashboard/del-stu",[DashboardController::class, "about"])->name("name_dashboard_delstu");
 
 Route::get("home",[StudentController::class, "home"])->name("name_homepage");
 Route::get("/about",[StudentController::class, "about"])->name("name_about");
