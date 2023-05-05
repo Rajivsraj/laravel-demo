@@ -53,5 +53,6 @@ class LoginRegisterController extends Controller
         // return $user_login;
     }
 
+    
 
 }

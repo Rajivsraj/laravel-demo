@@ -54,7 +54,7 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="#">{{$user_data["email"]}}</a></li>
-                                <li><a class="dropdown-item" href="#">Change Password</a></li>
+                                <li><a class="dropdown-item" href="{{route('name_change_password_view')}}">Change Password</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>

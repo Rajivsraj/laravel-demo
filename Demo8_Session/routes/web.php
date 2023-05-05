@@ -36,9 +36,12 @@ Route::get("/logut", function(){
     }
 })->name("name_logout");
 
-Route::get("/dashboard",[DashboardController::class, "dashboard_view"])->name("name_dashboard_view");
-Route::get("/dashboard/add-stu",[DashboardController::class, "about"])->name("name_dashboard_addstu");
-Route::get("/dashboard/del-stu",[DashboardController::class, "about"])->name("name_dashboard_delstu");
+Route::get("/admin",[DashboardController::class, "dashboard_view"])->name("name_dashboard_view");
+Route::get("/admin/add-stu",[DashboardController::class, "about"])->name("name_dashboard_addstu");
+Route::get("/admin/del-stu",[DashboardController::class, "about"])->name("name_dashboard_delstu");
+
+Route::get("/change-password", [DashboardController::class, "change_password_view"])->name("name_change_password_view");
+Route::post("/change-password", [DashboardController::class, "change_password"])->name("name_change_password");
 
 Route::get("home",[StudentController::class, "home"])->name("name_homepage");
 Route::get("/about",[StudentController::class, "about"])->name("name_about");
