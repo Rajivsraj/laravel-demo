@@ -19,7 +19,7 @@ class StudentDetailsSeeder extends Seeder
     {
         //
         $faker = Faker::create();
-        // for($i=1; $i<=40; $i++){
+        for($i=1; $i<=40; $i++){
             DB::table("student_details")->insert([
                 // "fname"=>Str::random(20),
                 "fname"=>$faker->name(2, 4),
@@ -33,6 +33,6 @@ class StudentDetailsSeeder extends Seeder
                 "city"=>$faker->city,
                 "gender"=>Hash::make("hello"),
             ]);
-        // }
+        }
     }
 }
